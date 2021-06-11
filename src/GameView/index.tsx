@@ -38,7 +38,7 @@ const GameView: React.FC<GameProps>  = ({game, isConnectFour, isTicTacToe}) => {
           
           setBoard(game.field.board);
           setBoardView(changedBoardView)
-      }
+      
               
     };
       
