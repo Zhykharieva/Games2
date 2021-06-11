@@ -21,7 +21,9 @@ const GameView: React.FC<GameProps>  = ({game, isConnectFour, isTicTacToe}) => {
   const gameResult = isPlayerWin ? winner : 'Anyone wins';
 
   const handleClick = (coords: ICoords) => {
-    if (!game.isFinished){
+    if (game.isFinished){
+      alert(`Game finished, you can't move! Press 'restart' if You want to play`)
+    }
         const {x, y} = coords;
         const symbol = game.players[game.currentPlayerIndex].sign;
         game.makeMove(coords);
@@ -29,10 +31,8 @@ const GameView: React.FC<GameProps>  = ({game, isConnectFour, isTicTacToe}) => {
         changedBoardView[x][y] = symbol; 
         setBoard(game.field.board);
         setBoardView(changedBoardView)
-    }
-    else {
-    alert(`Game finished, you can't move! Press 'restart' if You want to play`)
-    }              
+    
+         
       };
     
       const handleRestart = () => {
